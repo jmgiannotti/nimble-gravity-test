@@ -17,3 +17,17 @@ export const getCandidateInfo = async (email) => {
     throw error;
   }
 };
+
+export const getJobsList = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/api/jobs/get-list`);
+
+    return response.data;
+
+  } catch (error) {
+
+    console.error("Jobs list api error:", error);
+
+    throw error;
+  }
+};

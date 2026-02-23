@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getCandidateInfo } from './services/api';
+import { getCandidateInfo, getJobsList } from './services/api';
 
 function App() {
 
   const [candidateData, setCandidateData] = useState(null);
+  const [jobsList, setJobsList] = useState(null);
 
   useEffect(() => {
 
@@ -17,6 +18,14 @@ function App() {
       } catch (error) {
         console.error("Get candidate info error:", error);
       }
+
+      try {
+        const jobs = await getJobsList();
+        console.log("Jobs list:", jobs);
+        setJobsList(jobs);
+      } catch (error) {
+        console.error("Get jobs list error:", error);
+      }
     };
 
     fetchData();
@@ -28,6 +37,12 @@ function App() {
       {candidateData && (
         <pre style={{ textAlign: 'left' }}>
           {JSON.stringify(candidateData, null, 2)}
+        </pre>
+      )}
+      <h2>Open Positions</h2>
+      {jobsList && (
+        <pre style={{ textAlign: 'left' }}>
+          {JSON.stringify(jobsList, null, 2)}
         </pre>
       )}
     </div>
