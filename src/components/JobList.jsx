@@ -35,6 +35,7 @@ function JobList({ jobs, candidateData }) {
                 candidateData.uuid,
                 jobId,
                 candidateData.candidateId,
+                candidateData.applicationId,
                 repoUrl
             );
 
