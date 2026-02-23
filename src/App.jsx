@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCandidateInfo, getJobsList } from './services/api';
+import JobList from './components/JobList';
 
 function App() {
 
@@ -32,19 +33,9 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Nimble Gravity Challenge</h1>
-      {candidateData && (
-        <pre style={{ textAlign: 'left' }}>
-          {JSON.stringify(candidateData, null, 2)}
-        </pre>
-      )}
-      <h2>Open Positions</h2>
-      {jobsList && (
-        <pre style={{ textAlign: 'left' }}>
-          {JSON.stringify(jobsList, null, 2)}
-        </pre>
-      )}
+      <JobList jobs={jobsList} />
     </div>
   );
 }
