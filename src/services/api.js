@@ -31,3 +31,22 @@ export const getJobsList = async () => {
     throw error;
   }
 };
+
+export const applyToJob = async (uuid, jobId, candidateId, repoUrl) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/api/candidate/apply-to-job`, {
+      uuid,
+      jobId,
+      candidateId,
+      repoUrl
+    });
+
+    return response.data;
+
+  } catch (error) {
+
+    console.error("Apply to job api error:", error);
+
+    throw error;
+  }
+};

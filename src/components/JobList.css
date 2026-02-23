@@ -76,3 +76,15 @@
 .job-btn:hover {
   background-color: #358a96;
 }
+
+.jobs-empty {
+  color: #5a7a8a;
+  font-size: 0.95rem;
+}
+
+.job-result {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #c8dce6;
+}

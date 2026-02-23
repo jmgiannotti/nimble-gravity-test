@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="app-container">
       <h1>Nimble Gravity Challenge</h1>
-      <JobList jobs={jobsList} />
+      <JobList jobs={jobsList} candidateData={candidateData} />
     </div>
   );
 }
